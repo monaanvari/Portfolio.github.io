@@ -265,7 +265,7 @@
     <div class="project-card anim">
       <div class="project-tag">NLP · CS224N</div>
       <div class="project-name">Where Does LoRA Actually Help? Probing Layer-Wise Adaptation in GPT-2</div>
-      <div class="project-desc">Ablation study of LoRA target configurations on GPT-2 across paraphrase detection and sonnet generation. LoRA-ALL-r16 reached 99.3% of full fine-tuning accuracy using only 2.3% of full FT parameters, challenging assumptions about task-specific adaptation strategies.</div>
+      <div class="project-desc">Implemented GPT-2 (small) from scratch and conducted a controlled matrix-wise LoRA ablation across two structurally distinct tasks, holding parameter budgets fixed to isolate adaptation target from parameter count — a confound the original LoRA paper does not address. Analysis involved per-class recall decomposition, training stability profiling across epochs, and input-length subset stratification to disentangle where and why single-module strategies diverge. Findings falsified the mechanistic hypothesis in both directions, attributing the MLP advantage on paraphrase to class-recall calibration and the attention advantage on sonnet generation to best-epoch variance in a small model low-data regime rather than consistent superiority.</div>
     </div>
     <div class="project-card anim">
       <div class="project-tag">Robotics · CS237A</div>
