@@ -16,7 +16,10 @@
     --white: #FFFCFB;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--pale-blush);
@@ -158,7 +161,7 @@
 </nav>
 
 <section class="hero">
-  <div class="hero-text">
+  <div class="hero-text" id="about">
     <p class="eyebrow">CS + AI Researcher &nbsp;·&nbsp; Stanford University</p>
     <h1>Mona Anvari —<br><em>building intelligent,<br>responsible systems</em></h1>
     <p class="hero-bio">I'm a CS BS/MS student at Stanford (AI concentration) working at the intersection of embodied AI, large language models, and AI governance. My research spans robotics simulation, NLP, and the ethical dimensions of deploying AI in the real world.</p>
@@ -187,6 +190,10 @@
       <span class="tag">AI Policy</span>
       <span class="tag">Robotics</span>
       <span class="tag">ML Systems</span>
+      <span class="tag">Legal / Policy Tech</span>
+
+      
+
     </div>
   </div>
 </section>
@@ -328,7 +335,6 @@
       <div class="project-desc">Systematic experiments across transformer architectures on math word problems, producing an augmented SVAMP dataset designed to improve training and evaluation in mathematical reasoning contexts.</div>
     </div>
 </div>
-  </div>
 </section>
 
 <!-- EDUCATION -->
