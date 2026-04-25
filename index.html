@@ -84,8 +84,30 @@
   .exp-role { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: var(--deep-charcoal); margin-bottom: 0.5rem; }
   .exp-desc { font-size: 0.87rem; color: var(--warm-ash); line-height: 1.75; }
   .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: rgba(196,160,168,0.2); border: 1px solid rgba(196,160,168,0.2); border-radius: 4px; overflow: hidden; }
+  .projects-grid:has(.project-card:nth-child(odd):last-child) .project-card:first-child {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.projects-grid:has(.project-card:nth-child(odd):last-child) .project-card:first-child .project-tag,
+.projects-grid:has(.project-card:nth-child(odd):last-child) .project-card:first-child .project-name {
+  grid-column: 1;
+}
+
+.projects-grid:has(.project-card:nth-child(odd):last-child) .project-card:first-child .project-desc {
+  grid-column: 2;
+  max-width: 70ch;
+}
+
+@media (max-width: 768px) {
+  .projects-grid:has(.project-card:nth-child(odd):last-child) .project-card:first-child {
+    display: block;
+  }
+}
   .project-card { background: var(--white); padding: 2rem; transition: background 0.2s; }
-  .project-card:last-child:nth-child(odd) { grid-column: 1 / -1; max-width: 50%;}
   .project-card:hover { background: #fff6f2; }
   .project-tag { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hot-pink); margin-bottom: 0.75rem; }
   .project-name { font-family: 'Lora', serif; font-size: 0.95rem; font-weight: 600; color: var(--deep-charcoal); line-height: 1.35; margin-bottom: 0.55rem; }
@@ -258,16 +280,18 @@
     <div class="section-rule"></div>
   </div>
   <div class="projects-grid">
-        <div class="project-card anim">
-      <div class="project-tag">Legal Tech · Full-Stack AI · Capstone . In Progress </div>
-      <div class="project-name">AI-Powered Legal Reasoning Engine (Capstone)</div>
-      <div class="project-desc">Capstone project building a full-stack AI application for automated legal document analysis and structured reasoning output. The system combines a structured schema layer that constrains LLM inference to traceable, citable conclusions with a document intake pipeline that extracts key facts and surfaces gaps — producing attorney-ready export artifacts. Backend in Python; frontend React interface; Claude API for reasoning with structural grounding to prevent free-form hallucination. Built for CS194.</div>
-    </div>
-    <div class="project-card anim">
-      <div class="project-tag">CV · Security · CS231N · In Progress</div>
-      <div class="project-name">Visual Cryptography for Bot-Resistant CAPTCHA Generation</div>
-   <div class="project-desc">In progress. Proposes a novel generation pipeline coupling Visual Cryptography share-splitting with Neural Style Transfer — optimizing style loss per-share freely while enforcing a cryptographic reconstruction guarantee on content. Evaluated against standard deep learning bot-attack threat models; legibility approximated via SSIM and LPIPS. No prior work has coupled these two loss landscapes.</div>
-    </div>
+<div class="project-card anim">
+  <div class="project-tag">Legal Tech · Full-Stack AI · Capstone · In Progress</div>
+  <div class="project-name">AI-Assisted Legal Document Workflow</div>
+  <div class="project-desc">Building a full-stack legal-tech prototype for document intake, structured extraction, and review-oriented AI outputs. Implemented a Python/FastAPI backend, React interface, PDF parsing pipeline, shared application state, and schema-driven output design for more controlled AI-assisted workflows.</div>
+</div>
+
+<div class="project-card anim">
+  <div class="project-tag">Computer Vision · Security · CS231N · In Progress</div>
+  <div class="project-name">Bot-Resistant CAPTCHA Generation</div>
+  <div class="project-desc">Developing a computer vision project on human-legible, bot-resistant CAPTCHA generation. Implementing a procedural image pipeline using Python, visual cryptography concepts, neural style transfer components, and evaluation tooling for robustness and perceptual quality.</div>
+</div>
+
     <div class="project-card anim">
       <div class="project-tag">RL · Autonomous Vehicles . CS238</div>
       <div class="project-name">Contextual Risk Distortion: Modeling Driver Irrationality via IRL</div>
@@ -277,13 +301,12 @@
       <div class="project-tag">NLP · CS224N</div>
       <div class="project-name">Where Does LoRA Actually Help? Probing Layer-Wise Adaptation in GPT-2</div>
       <div class="project-desc">Implemented GPT-2 (small) from scratch and ran a controlled LoRA ablation across two structurally distinct tasks, fixing parameter budgets to isolate adaptation target as the sole variable. Analysis included per-class recall decomposition, epoch-level stability profiling, and length-stratified subset analysis to diagnose why single-module strategies diverge — falsifying the mechanistic hypothesis in both directions.</div>
-      <div class="project-desc">End-to-end autonomy stack on a physical TurtleBot 3 using ROS2 — from proportional heading control to MobileNet-based stop sign detection with frontier exploration. Validated in Gazebo simulation and on physical hardware.</div>
     </div>
-    <div class="project-card anim">
-      <div class="project-tag">Robotics · ROS2 · CS237A</div>
-      <div class="project-name">Autonomous TurtleBot Navigation Stack</div>
-      <div class="project-desc">Built an end-to-end autonomy stack on a physical TurtleBot 3 using ROS2 (Humble) and Python — from environment setup through full autonomous exploration. Implemented a proportional heading controller with real-time parameter tuning, a pure-pursuit navigator for goal-directed motion, and a MobileNet-based stop sign detector (SSDLite320) driving perception-triggered halt logic. Final integration: a frontier exploration planner that autonomously mapped an unknown environment and halted on stop sign detection, with timing logic to suppress redundant detections after resuming motion. Validated in both Gazebo simulation and on physical hardware.</div>
-    </div>
+<div class="project-card anim">
+  <div class="project-tag">Robotics · ROS2 · CS237A</div>
+  <div class="project-name">Autonomous TurtleBot Navigation Stack</div>
+  <div class="project-desc">Built and tested a ROS2-based autonomy stack for TurtleBot 3 using Python, Gazebo, RViz, Docker, and hardware deployment. Implemented navigation, perception-triggered control, and frontier exploration, validated in simulation and on the physical robot.</div>
+</div>
     <div class="project-card anim">
       <div class="project-tag">AI Evaluation</div>
       <div class="project-name">Evaluating Divergent Thinking in Generative AI</div>
