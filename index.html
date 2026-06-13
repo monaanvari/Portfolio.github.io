@@ -52,6 +52,25 @@
   .hero-links a { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 500; color: var(--deep-charcoal); text-decoration: none; border-bottom: 1.5px solid var(--dusty-mauve); padding-bottom: 1px; transition: color 0.2s, border-color 0.2s; }
   .hero-links a:hover { color: var(--hot-pink); border-color: var(--hot-pink); }
   .profile-card { position: sticky; top: 6rem; }
+  .direction-strip {
+  display: grid; grid-template-columns: 130px 1fr; gap: 1.5rem; align-items: start;
+  margin-bottom: 2rem; padding: 1.4rem 1.6rem;
+  background: var(--white);
+  border: 1px solid rgba(255, 45, 120, 0.35);
+  border-left: 3px solid var(--hot-pink);
+  border-radius: 3px;
+}
+.direction-label {
+  font-family: 'DM Mono', monospace; font-size: 0.65rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--hot-pink); padding-top: 0.2rem; white-space: wrap;
+}
+.direction-text { font-size: 0.85rem; color: var(--warm-ash); line-height: 1.75; }
+.direction-text strong { color: var(--deep-charcoal); font-weight: 500; }
+
+@media (max-width: 768px) {
+  .direction-strip { grid-template-columns: 1fr; gap: 0.5rem; }
+}
   .profile-photo {
     width: 100%; aspect-ratio: 1; border-radius: 4px;
     background: linear-gradient(135deg, #e8d8dc 0%, #d0b2ba 100%);
@@ -286,12 +305,30 @@
     <h2 class="section-title">Selected Projects</h2>
     <div class="section-rule"></div>
   </div>
+  
+
+
+  html<div class="direction-strip anim">
+  <div class="direction-label">Active Current Direction</div>
+  <div class="direction-text">
+    <strong>Grounded legal reasoning in multi-model conversation.</strong>
+    Building on the <a href="#software project spr26">legal document workflow </a> and <a href="#Interpretability project spr26">output vs hidden-state persistence audit</a>, I'm exploring how doctrine — detailed and high consequence scenario-specific legal standards — should be weighted against competing factors during output formation in consequential multi-agent settings: turn arrangement in debate, critic-induced confusion at the representation level, and how a grounded brainstorming mode must be governed differently than adversarial debate.
+  </div>
+</div>
+
   <div class="projects-grid">
-<div class="project-card anim">
+
+    <div class="project-card anim" id="Interpretability project spr26">
+  <div class="project-tag">AI Safety · Interpretability · CS281 · Two-Phase Study</div>
+  <div class="project-name">When a Debias Is Only Skin-Deep: From Output Audits to Hidden-State Persistence</div>
+  <div class="project-desc">Sequential study treating philosophical-school framings (eg. stoic) as the labelled, measurable end of a deeper problem: normative assumptions baked into ordinary language, absorbed by raters, and stored as numbers. Phase 1 — a behavioral audit of frontier models across sycophancy pairs — surfaced that school-named framings flip advice orientation unusually fast while reading as principled rather than biased. Phase 2 built an 832-generation paired-scenario audit of Qwen2.5-1.5B-Instruct comparing outputs against residual-stream representations: a generic surface debias flips 40–70% of outputs while 17–72% of the school's latent direction survives (cross-school probe AUROC 0.70, replicated on 128 unseen prompts, direction sharpened ~3.4× by instruction tuning) — yielding a false-safety score for deployments audited on outputs alone.</div>
+</div>
+<div class="project-card anim" id="software project spr26">
   <div class="project-tag">Legal Tech · Full-Stack AI · Capstone · In Progress</div>
   <div class="project-name">AI-Assisted Legal Document Workflow</div>
   <div class="project-desc">Building a full-stack legal-tech prototype for document intake, structured extraction, and review-oriented AI outputs. Implemented a Python/FastAPI backend, React interface, PDF parsing pipeline, shared application state, and schema-driven output design for more controlled AI-assisted workflows.</div>
 </div>
+
 
 <div class="project-card anim">
   <div class="project-tag">Computer Vision · Security · CS231N · In Progress</div>
